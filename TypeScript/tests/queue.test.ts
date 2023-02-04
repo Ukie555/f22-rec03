@@ -19,7 +19,6 @@ test("test isEmpty: list with 1 element is not empty", () => {
 })
 
 test("test peek: newly created list should peek null", () => {
-
     expect(createQueue().peek()).toBeNull()
 })
 
@@ -52,4 +51,25 @@ describe("test size: ", ()=> {
             queue.enqueue(i)
         expect(queue.size()).toBe(11)
     })
+})
+
+test("test clear: Remove all the elements from the queue", () => {
+    const queue = createQueue()
+    queue.enqueue(2)
+    queue.enqueue(3)
+    expect(queue.size()).toBe(2)
+    queue.clear()
+    expect(queue.size()).toBe(0)
+})
+
+test("test dequeue: Fetch and remove the elements at the head of the queue.", () => {
+    const queue = createQueue()
+    queue.enqueue(2)
+    queue.enqueue(3)
+    expect(queue.dequeue()).toBe(3)
+})
+
+test("test dequeue empty: retur null", () => {
+    const queue = createQueue()
+    expect(queue.dequeue()).toBe(null)
 })
